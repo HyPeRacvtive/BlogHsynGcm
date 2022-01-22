@@ -1,0 +1,89 @@
+﻿@using BlogHsynGcm.Models
+@using PagedList
+@using PagedList.Mvc
+@model IPagedList<Blogs>
+
+
+@{
+    ViewBag.Title = "Category";
+}
+
+<!-- START SECTION BREADCRUMB -->
+@Html.Action("_CategoryHeader", "HomePartial")
+
+<!-- START SECTION BREADCRUMB -->
+<!-- START BLOG -->
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="blog_list list_post">
+                    @foreach (var Cat in Model)
+                    {
+                        <div class="blog_post">
+                            <div class="blog_img">
+                                <a href="/Home/Detail/@Cat.Id">
+                                    <img src="~/Content/HomeStyle/images/BlogImages/@Cat.Image" alt="blog_img">
+                                </a>
+                            </div>
+                            <div class="blog_content">
+                                <div class="blog_text">
+                                    <div class="blog_tags">
+                                        <a class="blog_tags_cat" style="@Cat.Categories.Color" href="Home/Categories/@Cat.Categories.Id">@Cat.Categories.Name</a>
+                                    </div>
+                                    <h5 class="blog_heading"><a href="/Home/Detail/@Cat.Id">@Cat.Header</a></h5>
+                                    <ul class="blog_meta">
+                                        <li><a href="#"><i class="ti-calendar"></i> <span>@Cat.Date.ToString("MMMM dd, yyyy")</span></a></li>
+                                        <li><a href="#"><i class="ti-comments"></i> <span>@Cat.Comments.Count</span></a></li>
+                                        <li><a href="#"><i class="ti-thumb-up"></i> <span>@Cat.LikeCount</span></a></li>
+
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <div class="py-3 py-md-4 mt-2 mt-sm-0 mt-lg-5 border-top border-bottom">
+                    @*@Html.PagedListPager(Model, _sayfaNo => Url.Action("Category", "Home", new {@class= "page-link", page = _sayfaNo }))*@
+
+                    <ul class="pagination justify-content-center">
+
+                       @Html.PagedListPager(Model, _sayfaNo => Url.Action("Category", "Home", new { page = _sayfaNo }), new PagedListRenderOptions { LiElementClasses = new string[] { "page-link border-2 rounded border-danger" } })
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="sidebar mt-4 pt-2 mt-lg-0 pt-lg-0">
+                    <div class="widget">
+                        @Html.Action("_HomeSideBarAbout", "HomePartial")
+
+                    </div>
+                    <div class="widget">
+                        @Html.Action("_HomeSideBarCategories", "HomePartial")
+
+                    </div>
+                    @*<div class="widget">
+                            <h5 class="widget_title">Makalelerden Haberdar Ol</h5>
+                            <p>Yeni Makalelerden Haberdar olmak için mail adresinizi kayıt edin</p>
+                            <div class="newsletter_form">
+                                <form>
+                                    <input type="text" required="" class="form-control form-control-sm rounded-input" placeholder="Email Adresiniz..">
+                                    <button type="submit" title="Subscribe" class="btn btn-default btn-radius btn-sm" name="submit" value="Submit">Kayıt ol</button>
+                                </form>
+                            </div>
+                        </div>*@
+                    <div class="widget">
+                        <h5 class="widget_title">Sosyal Medya</h5>
+                        @Html.Action("_HomeSideBarSocialFeed", "HomePartial")
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END BLOG -->

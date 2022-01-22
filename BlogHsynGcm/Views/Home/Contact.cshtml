@@ -1,0 +1,70 @@
+﻿@model BlogHsynGcm.Models.Messages
+
+<div class="section pb_70">
+    <div class="container">
+        @Html.Action("_ContactHeader","HomePartial")
+    </div>
+</div>
+<!-- END CONTACT -->
+<!-- START CONTACT -->
+<div class="section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-9">
+                <div class="heading_s1 text-center">
+                    <h2>Mesaj Gönderin</h2>
+                </div>
+                <p class="text-center">Aşağıda Bilgileri Doldurarak Benimle İletişim Kurabilirsiniz</p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="field_form">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label>Adınız<span class="required">*</span></label>
+
+                                @Html.EditorFor(model => model.NameSurname, new { htmlAttributes = new { @class = "form-control", required = "", placeholder = "Adınızı Giriniz" } })
+                                @Html.ValidationMessageFor(model => model.NameSurname, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Email Adresiniz<span class="required">*</span></label>
+                                @Html.EditorFor(model => model.Mail, new { htmlAttributes = new { @class = "form-control", required = "", placeholder = "Emailinizi Giriniz" } })
+                                @Html.ValidationMessageFor(model => model.Mail, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Telefon Numaranız<span class="required">*</span></label>
+                                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", required = "", placeholder = "Telefon Numaranızı Giriniz" } })
+                                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label>Konu</label>
+                                <input placeholder="Konu" id="Subject" class="form-control" name="Subject" type="text">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label>Mesajınız<span class="required">*</span></label>
+                                <textarea required="" placeholder="Mesajınızı Giriniz" id="description" class="form-control" name="Message" rows="4"></textarea>
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-default">Mesaj Gönder</button>
+                            </div>
+                            @if (ViewBag.Message == true)
+                            {
+                                <div class="col-md-12">
+                                    <div id="alert-msg" class="alert-msg text-center">Mesajınız iletildi</div>
+                                </div>
+                            }
+
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

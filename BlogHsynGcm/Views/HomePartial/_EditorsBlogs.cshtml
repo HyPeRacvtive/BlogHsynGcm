@@ -1,0 +1,38 @@
+﻿@model IEnumerable<BlogHsynGcm.Models.Blogs>
+
+<div class="dropdown-menu">
+    <ul class="post_nav_slider carousel_slider owl-carousel owl-theme" data-dots="false" data-margin="20" data-loop="true" data-autoplay="true" data-responsive='{"0":{"items": "1"}, "480":{"items": "2"}, "991":{"items": "3"}, "1199":{"items": "4"}}'>
+        @foreach (var Editors in Model)
+        {
+            <li>
+                <div class="blog_post">
+                    <div class="blog_img">
+                        <a href="#">
+                            <img src="~/Content/HomeStyle/images/BlogImages/@Editors.Image" alt="nav_blog_img3">
+                        </a>
+                    </div>
+                    <div class="blog_content">
+                        <div class="blog_text">
+                            <div class="blog_tags">
+                                <a class="blog_tags_cat" style="background-color:@Editors.Categories.Color" href="/Home/Category/@Editors.Categories.Id">@Editors.Categories.Name</a>
+                            </div>
+                            <h6 class="blog_heading"><a href="/Home/Detail/@Editors.Id">@Editors.Header</a></h6>
+                            <ul class="blog_meta">
+                                <li><a href="#"><i class="ti-calendar"></i> <span>@Editors.Date.ToString("dd.MM.yyyy")</span></a></li>
+                                <li><a href="#"><i class="ti-comments"></i> <span>@Editors.Comments.Count</span></a></li>
+                                <li><a href="#"><i class="ti-thumb-up"></i> <span>@Editors.LikeCount</span></a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        }
+
+
+
+
+
+    </ul>
+</div>
+

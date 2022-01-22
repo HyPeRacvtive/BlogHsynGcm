@@ -1,0 +1,42 @@
+﻿@model IEnumerable<BlogHsynGcm.Models.Comments>
+
+<a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="icon-note"></i>
+    @if (Model.Any(x => x.isRead != true))
+    {
+        <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+    }
+</a>
+<div class="dropdown-menu mailbox dropdown-menu-right animated bounceInDown" aria-labelledby="2">
+    <ul>
+        <li>
+            @if (Model.Any(x => x.isRead != true))
+            {
+                <div class="drop-title"> @Model.Count() Yeni Yorumunuz Var</div>
+            }
+            else
+            {
+                <div class="drop-title"> Yeni Yapılan Yorum Yok</div>
+            }
+        </li>
+        <li>
+            <div class="message-center">
+
+                @foreach (var Not in Model)
+                {
+                    <a href="/Comments/Details/@Not.Id">
+                        <div class="user-img"> <img src="~/Content/HomeStyle/images/user.png" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
+                        <div class="mail-contnet">
+                            <h5>@Not.User.NameSurName</h5> <span class="mail-desc">@Not.User.Mail</span> <span class="time">@Not.Date</span>
+                        </div>
+                    </a>
+                }
+
+
+            </div>
+        </li>
+        <li>
+            <a class="nav-link text-center link" href="/Comments"> <strong>Tüm Yorumları Gör</strong> <i class="fa fa-angle-right"></i> </a>
+        </li>
+    </ul>
+</div>

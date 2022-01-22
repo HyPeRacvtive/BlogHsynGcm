@@ -1,0 +1,71 @@
+﻿
+<aside class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- User Profile-->
+        @Html.Action("_SideBarAdminUser","AdminPartial")
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+                <li class="nav-small-cap">---MENÜ</li>
+                <li>
+                    <a class="waves-effect waves-dark" href="/Admin" aria-expanded="false">
+                        <i class="icon-speedometer"></i>
+                        <span class="hide-menu">Panel</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fas fa-newspaper"></i><span class="hide-menu">Makeleler</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="/Blogs">Makale Listesi</a></li>
+                        <li><a href="/Blogs/Create">Makale Ekle</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fas fa-list"></i><span class="hide-menu">Kategoriler</span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="/Categories">Kategori Listesi</a></li>
+                        <li><a href="/Categories/Create">Kategori Ekle</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a class="waves-effect waves-dark" href="/Admin/Social/1" aria-expanded="false">
+                        <i class="far fa-thumbs-up"></i>
+                        <span class="hide-menu">Sosyal Medya</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="waves-effect waves-dark" href="/Comments" aria-expanded="false">
+                        <i class="far fa-comments"></i>
+                        <span class="hide-menu">Yorumlar</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="waves-effect waves-dark" href="/Messages" aria-expanded="false">
+                        <i class="far fa-envelope"></i>
+                        <span class="hide-menu">Mesajlar</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="waves-effect waves-dark" href="/Admin/About/1" aria-expanded="false">
+                        <i class="fas fa-address-card"></i>
+                        <span class="hide-menu">Hakkımda</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="waves-effect waves-dark" href="/Admin/SiteSetting/1" aria-expanded="false">
+                        <i class="ti-settings"></i>
+                        <span class="hide-menu">Ayarlar</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="waves-effect waves-dark" href="/Security/Logout" aria-expanded="false">
+                        <i class="icon-logout"></i>
+                        <span class="hide-menu">Çıkış Yap</span>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+    </div>
+</aside>

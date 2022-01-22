@@ -1,0 +1,112 @@
+﻿@model BlogHsynGcm.Models.Writers
+@{
+    ViewBag.Title = "UserProfile";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+@using (Html.BeginForm("UserProfile", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Profil Güncelle</h4>
+                    <div style="display:none">
+                        <input type="text" name="About" value="@Model.About" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Adı Soyadı</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon11"><i class="ti-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" name="NameSurname" value="@Model.NameSurname" placeholder="Adı Soyadı" aria-label="Username" aria-describedby="basic-addon11">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Kullanıcı Adı</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon22"><i class="fas fa-user-lock"></i></span>
+                            </div>
+                            <input type="text" class="form-control" name="UserName" value="@Model.UserName" placeholder="Kullanıcı Adı" aria-label="Email" aria-describedby="basic-addon22">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Şifre</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon33"><i class="ti-lock"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Şifre" name="Password" value="@Model.Password" aria-label="Password" aria-describedby="basic-addon33">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Profil Resmi</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon33"><i class="far fa-image"></i></span>
+                            </div>
+                            <input type="file" name="Image" value="@Model.Image" required class="form-control" />
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">İletişim Bilgilerini Güncelle</h4>
+                    <div class="form-group">
+                        <label>Adres</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon11"><i class="fas fa-map-marker-alt"></i></span>
+                            </div>
+                            <input type="text" class="form-control" name="Address" value="@Model.Address" placeholder="Adres" aria-label="Username" aria-describedby="basic-addon11">
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Telefon Numarası</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon11"><i class="fas fa-phone-square-alt"></i></span>
+                            </div>
+                            <input type="text" class="form-control" name="Phone" value="@Model.Phone" placeholder="Telefon" aria-label="Username" aria-describedby="basic-addon11">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">E-Mail Adresi</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon22"><i class="ti-email"></i></span>
+                            </div>
+                            <input type="text" class="form-control" name="Mail" value="@Model.Mail" placeholder="Mail Adresi" aria-label="Email" aria-describedby="basic-addon22">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Kısa Hakkımda Yazısı</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon33"><i class="fas fa-address-card"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Hakkımda" name="ShortAbout" value="@Model.ShortAbout" aria-label="" aria-describedby="basic-addon33">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-100">
+            <hr class=" danger" />
+            <button type="submit" class="btn btn-success mr-2">Kaydet</button>
+            <a class="btn btn-danger" href="/Admin">İptal</a>
+        </div>
+    </div>
+
+}

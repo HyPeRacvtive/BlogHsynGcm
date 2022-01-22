@@ -1,0 +1,73 @@
+﻿@model BlogHsynGcm.Models.Settings
+
+@{
+    ViewBag.Title = "SiteSetting";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("SiteSetting", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Site Ayarları</h4>
+                    <div class="form-group">
+                        <label>Logo</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon11"><i class="far fa-file-image"></i></span>
+                            </div>
+                            <input type="file" name="Logo" class="form-control" required value="@Model.Logo" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Logo Genişliği (Örnek : 70)</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon22"><i class="fas fa-arrows-alt-h"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" name="LogoWidth" value="@Model.LogoWidth" placeholder="Logo Genişliği" aria-label="Email" aria-describedby="basic-addon22">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Logo Yüksekliği(Örnek : 50)</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon22"><i class="fas fa-arrows-alt-v"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control" name="LogoHeight" value="@Model.LogoHeight" placeholder="Logo Yüksekliği" aria-label="Email" aria-describedby="basic-addon22">
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Ziyaretçi Sayısı</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon22"><i class="fas fa-sort-amount-up-alt"></i></span>
+                            </div>
+                            <input type="text" class="form-control" name="VisitorCount" value="@Model.VisitorCount" placeholder="Kullanıcı Adı" aria-label="Email" aria-describedby="basic-addon22">
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success mr-2">Kaydet</button>
+            <a class="btn btn-danger" href="/Admin">İptal</a>
+        </div>
+        <div class="col-lg-6">
+            <img src="~/Content/UploadImage/@Model.Logo" width="@Model.LogoWidth" height="@Model.LogoHeight" alt="Alternate Text" />
+
+        </div>
+
+    </div>
+}

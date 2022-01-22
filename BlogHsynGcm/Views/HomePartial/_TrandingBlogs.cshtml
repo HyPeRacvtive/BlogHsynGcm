@@ -1,0 +1,43 @@
+﻿@model IEnumerable<BlogHsynGcm.Models.Blogs>
+<div class="section tranding_post pb_70">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading_s2">
+                    <h4>En Beğenilen Makaleler</h4>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var Trand in Model)
+            {
+                <div class="col-lg-4 col-sm-6">
+                    <div class="blog_post blog_grid_overlay">
+                        <div class="blog_img">
+                            <a href="#">
+                                <img width="300" height="350" src="~/Content/HomeStyle/images/BlogImages/@Trand.Image" alt="@Trand.Header">
+                            </a>
+                        </div>
+                        <div class="blog_content">
+                            <div class="blog_text">
+                                <div class="blog_tags">
+                                    <a class="blog_tags_cat" style="background-color:@Trand.Categories.Color" href="#">@Trand.Categories.Name</a>
+                                </div>
+                                <h5 class="blog_heading"><a href="/Home/Detail/@Trand.Id">@Trand.Header </a></h5>
+                                <ul class="blog_meta">
+                                    <li><a href="#"><i class="ti-calendar"></i> <span>@Trand.Date.ToString("MMMM dd, yyyy")</span></a></li>
+                                    <li><a href="#"><i class="ti-comments"></i> <span>@Trand.Comments.Count</span></a></li>
+                                    <li><a href="#"><i class="ti-thumb-up"></i> <span>@Trand.LikeCount</span></a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+
+        </div>
+    </div>
+</div>

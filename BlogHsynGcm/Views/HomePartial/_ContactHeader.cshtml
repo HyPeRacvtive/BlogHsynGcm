@@ -1,0 +1,37 @@
+﻿@model BlogHsynGcm.Models.Writers
+
+<div class="row">
+    <div class="col-lg-3 col-md-3">
+        <div class="contact_wrap contact_style1">
+            <div class="contact_icon">
+                <i class="ti-mobile"></i>
+            </div>
+            <div class="contact_text">
+                <span>Telefon</span>
+                <p>@Model.Phone</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-6">
+        <div class="contact_wrap contact_style1">
+            <div class="contact_icon">
+                <img class="w-25 h-25" src="~/Content/HomeStyle/images/Rehber.png" alt="QR Kod" />
+            </div>
+            <div class="contact_text">
+                <span>QR Kod</span>
+                <p>QR Kodunu Okutarak Telefon Numaramı Rehberinize Ekleyebilirsiniz.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-3">
+        <div class="contact_wrap contact_style1">
+            <div class="contact_icon">
+                <i class="ti-email"></i>
+            </div>
+            <div class="contact_text">
+                <span>E-Mail Adresi</span>
+                <a href="#">@Model.Mail</a>
+            </div>
+        </div>
+    </div>
+</div>

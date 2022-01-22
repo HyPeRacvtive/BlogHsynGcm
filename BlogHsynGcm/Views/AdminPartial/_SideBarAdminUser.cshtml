@@ -1,0 +1,32 @@
+﻿@model BlogHsynGcm.Models.Writers 
+
+
+<div class="user-profile">
+    <div class="user-pro-body">
+        <div><img src="~/Content/UploadImage/@Model.Image" alt="user-img" class="img-circle"></div>
+        <div class="dropdown">
+
+            <a href="javascript:void(0)" class="dropdown-toggle u-dropdown link hide-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@Model.NameSurname<span class="caret"></span></a>
+            <div class="dropdown-menu animated flipInY">
+                <!-- text-->
+                <a href="~/Admin/UserProfile/1" class="dropdown-item"><i class="ti-user"></i> Hesabım</a>
+                <!-- text-->
+                <a href="~/Admin/Users" class="dropdown-item"><i class="ti-wallet"></i> Üyelerim</a>
+                <!-- text-->
+                <a href="~/Messages" class="dropdown-item"><i class="ti-email"></i> Mesajlarım</a>
+                <!-- text-->
+                <div class="dropdown-divider"></div>
+                <!-- text-->
+                @*<a href="~/" class="dropdown-item"><i class="ti-settings"></i> Ayarlarım</a>*@
+                <!-- text-->
+                <div class="dropdown-divider"></div>
+                <!-- text-->
+                <a href="/Security/Logout" class="dropdown-item"><i class="fas fa-power-off"></i> Çıkış Yap</a>
+                <!-- text-->
+            </div>
+
+
+
+        </div>
+    </div>
+</div>

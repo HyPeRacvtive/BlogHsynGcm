@@ -1,0 +1,91 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">Yönetim Paneli</h4>
+    </div>
+    <div class="col-md-7 align-self-center text-right">
+        <div class="d-flex justify-content-end align-items-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active">Yönetim Paneli</li>
+            </ol>
+            <a href="/Blogs/Create" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Makale Yaz</a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex flex-row">
+                    <div class="round align-self-center round-success"><i class="far fa-newspaper"></i></div>
+                    <a href="/Blogs">
+                        <div class="m-l-10 align-self-center">
+                            <h3 class="m-b-0">@ViewBag.InfoBlog</h3>
+                            <h5 class="text-muted m-b-0">Makale</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex flex-row">
+                    <div class="round align-self-center round-info"><i class="far fa-comments"></i></div>
+                    <a href="/Comments">
+                        <div class="m-l-10 align-self-center">
+                            <h3 class="m-b-0">@ViewBag.InfoComment</h3>
+                            <h5 class="text-muted m-b-0">Yorum</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex flex-row">
+                    <div class="round align-self-center round-danger"><i class="fas fa-users"></i></div>
+                    <a href="Admin/Users">
+                        <div class="m-l-10 align-self-center">
+                            <h3 class="m-b-0">@ViewBag.InfoUser</h3>
+                            <h5 class="text-muted m-b-0">Üye</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex flex-row">
+                    <div class="round align-self-center round-warning"><i class="fas fa-envelope-open-text"></i></div>
+                    <a href="/Messages">
+                        <div class="m-l-10 align-self-center">
+                            <h3 class="m-b-0">@ViewBag.InfoMessage</h3>
+                            <h5 class="text-muted m-b-0">Mesaj</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+

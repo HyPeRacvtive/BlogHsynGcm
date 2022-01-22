@@ -1,0 +1,41 @@
+﻿@model BlogHsynGcm.Models.Messages
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor text-danger">@Model.ipAdress Ip Adresinden Gelen Mesaj</h4>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Column -->
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="text-capitalize">Adı Soyadı : @Model.NameSurname</h3>
+                <div class="row">                   
+                    <div class="col-lg-9 col-md-9 col-sm-6">
+                        <h4 class="box-title m-t-40 text-capitalize">Konu: @Model.Subject</h4>
+                        <h2 class="text-capitalize">Mesaj: @Html.Raw(Model.Message)</h2>
+                        <h3 class="box-title m-t-40">Tarih: @Model.Date </h3>                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <a href="/Messages/Delete/@Model.Id" class="btn btn-primary btn-rounded">Mesajı Sil</a>
+            @Html.ActionLink("Listeye Dön", "Index")
+        </div>
+    }
+</div>

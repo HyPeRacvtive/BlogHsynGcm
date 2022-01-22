@@ -1,0 +1,63 @@
+﻿@model BlogHsynGcm.Models.Comments
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor text-danger">@Model.ipAdres Ip Adresinden Gelen Yorum</h4>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Column -->
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-lg-9 col-md-9 col-sm-6">
+                        <h3>@Html.Raw(Model.Comment)</h3>
+
+                        <h5 >@Model.Date </h5>
+                        <ul class="list-unstyled">
+                            @if (Model.isActive)
+                            {
+                                <li><i class="ti-check bg-success"></i>Yorum Onaylı</li>
+                            }
+                            else
+                            {
+                                <li><i class="ti-close bg-warning"></i>Yorum Onaysız</li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <a class="btn btn-danger btn-rounded" href="/Comments/Delete/@Model.Id">Yorumu Sil</a>
+    @if (!Model.isActive)
+    {
+        <a class="btn btn-success btn-rounded" href="/Comments/CommentConfirm/@Model.Id">Yorumu Onayla</a>
+
+    }
+    else
+    {
+        <a class="btn btn-warning btn-rounded" href="/Comments/CommentUnConfirm/@Model.Id">Onayı Kaldır</a>
+
+    }
+
+
+
+    @Html.ActionLink("Listeye Dön", "Index")
+</div>
+    }
+</div>
+

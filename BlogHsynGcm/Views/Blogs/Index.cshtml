@@ -1,0 +1,112 @@
+﻿@model IEnumerable<BlogHsynGcm.Models.Blogs>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">Makale Düzenle</h4>
+    </div>
+    <div class="col-md-7 align-self-center text-right">
+        <div class="d-flex justify-content-end align-items-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Anasayfa</a></li>
+                <li class="breadcrumb-item active">Makale Düzenle</li>
+            </ol>
+            <button onclick="window.location.href='/Blogs/Create'" type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Yeni Oluştur</button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table product-overview" id="myTable">
+                        <thead>
+
+                            <tr>
+                                <th>Başlık</th>
+                                <th>Resim</th>
+                                <th>Kategori</th>
+                                <th>Beğeni Sayısı</th>
+                                <th>Yorum Sayısı</th>
+                                <th>Eklenme Tarihi</th>
+                                <th>Durum</th>
+                                <th>Slider</th>
+                                <th>Editörün Seçimi</th>
+                                <th>İşlemler</th>
+
+
+                            </tr>
+
+                        </thead>
+                        <tbody>
+                            @foreach (var Art in Model)
+                            {
+                            <tr>
+                                <td>@Art.Header</td>
+                                <td> <img src="~/Content/HomeStyle/images/BlogImages/@Art.Image" alt="BlogResim" width="80"> </td>
+                                <td>@Art.Categories.Name</td>
+                                <td>@Art.LikeCount</td>
+                                <td>@Art.Comments.Count()</td>
+                                <td>@Art.Date</td>
+                                @if (Art.isActive)
+                                {
+                                    <td> <span class="label label-success font-weight-100">Aktif</span> </td>
+                                }
+                                else
+                                {
+                                    <td> <span class="label label-danger font-weight-100">Pasif</span> </td>
+                                }
+                                @if (Art.isSlider)
+                                {
+                                    <td> <span class="label label-success font-weight-100">Evet</span> </td>
+                                }
+                                else
+                                {
+                                    <td> <span class="label label-danger font-weight-100">Hayır</span> </td>
+                                }
+                                @if (Art.isEditorschoice)
+                                {
+                                    <td> <span class="label label-success font-weight-100">Evet</span> </td>
+                                }
+                                else
+                                {
+                                    <td> <span class="label label-danger font-weight-100">Hayır</span> </td>
+                                }
+
+                                <td>
+                                    <a href="/Blogs/Edit/@Art.Id" class="text-inverse p-r-10" data-toggle="tooltip" title="Düzenle"><i class="ti-marker-alt"></i></a>
+                                    <a href="/Blogs/Delete/@Art.Id" class="text-inverse" title="Sil" data-toggle="tooltip"><i class="ti-trash"></i></a>
+                                </td>
+                            </tr>
+
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

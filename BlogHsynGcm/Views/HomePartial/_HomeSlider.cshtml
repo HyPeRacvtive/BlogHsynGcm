@@ -1,0 +1,37 @@
+﻿@model IEnumerable<BlogHsynGcm.Models.Blogs>
+
+
+<div class="banner_section staggered-animation-wrap slide_small slide_type2">
+    <div class="carousel_slider owl-carousel owl-theme nav_style1" data-loop="true" data-dots="false" data-center="true" data-nav="true" data-responsive='{"0":{"items": "1"}, "767":{"items": "2"}}'>
+        @foreach (var Slider in Model)
+        {
+            <div class="item active background_bg"  data-img-src="Content/HomeStyle/images/BlogImages/@Slider.Image">
+                <div class="banner_slide_content_bottom">
+                    <div class="banner_content">
+                        <div class="blog_tags">
+                            <a class="blog_tags_cat" style="background-color:@Slider.Categories.Color" href="/Home/Category/@Slider.Categories.Id">@Slider.Categories.Name</a>
+                        </div>
+                        <h2 class="blog_heading"><a href="/Home/Detail/@Slider.Id">@Slider.Header</a></h2>
+                        <ul class="blog_meta">
+                            <li>
+                                <a href="#">
+                                    <i class="ti-calendar"></i>
+                                    <span>@Slider.Date.ToString("MMMM dd, yyyy")</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="ti-comments"></i>
+                                    <span>@Slider.Comments.Count</span>
+                                </a>
+                            </li>
+                            <li><a href="#"><i class="ti-thumb-up"></i> <span>@Slider.LikeCount</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+    </div>
+</div>

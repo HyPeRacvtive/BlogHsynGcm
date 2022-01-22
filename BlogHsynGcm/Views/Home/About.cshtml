@@ -1,0 +1,41 @@
+﻿@model  BlogHsynGcm.Models.Writers
+
+    <div class="section breadcrumb_section background_bg overlay_bg_50 page_title_light" data-img-src="~/Content/assets/images/about_bg.jpg">
+    <div class="container">
+        <!-- STRART CONTAINER -->
+        <div class="row align-items-center">
+            <div class="col-md-7">
+                <div class="page-title">
+                    <h2>@Model.AboutHeader</h2>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <ol class="breadcrumb justify-content-md-end">
+                    <li class="breadcrumb-item"><a href="/Home/About">Anasayfa Hakkımda Sayfası</a></li>
+                    <li class="breadcrumb-item active">Hakkımda</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- END CONTAINER-->
+</div>
+<!-- START SECTION BREADCRUMB -->
+<!-- START ABOUT US -->
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <img class="mb-4" src="~/Content/UploadImage/@Model.Image" alt="about_author" />
+              @Html.Raw(Model.About)
+            </div>
+            <div class="col-lg-4">
+                <div class="sidebar pt-3 pt-lg-0">
+                    <div class="widget">
+                        <h5 class="widget_title">Sosyal Medya</h5>
+                        @Html.Action("_HomeSideBarSocialFeed", "HomePartial")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END ABOUT US -->

@@ -1,0 +1,75 @@
+﻿@model BlogHsynGcm.Models.SocialFeed
+
+@{
+    ViewBag.Title = "Social";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Sosyal Medya Hesapları</h4>
+                <h6 class="card-subtitle">Girmiş Olduğunuz Linkler Anasayfaya Sosyal Medya Hesapları Olarak Eklenecektir.<br />(Boş Bırakılan Link Anasayfaya Eklenmez)</h6>
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Facebook</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon2"><i class="fab fa-facebook"></i></span>
+                            </div>
+                            @Html.EditorFor(model => model.FaceBook, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FaceBook, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputuname">Twitter</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="fab fa-twitter-square"></i></span>
+                            </div>
+                            @Html.EditorFor(model => model.Twitter, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Twitter, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd1">Instagram</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon3"><i class="fab fa-instagram"></i></span>
+                            </div>
+                            @Html.EditorFor(model => model.Instagram, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Instagram, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd2">LinkedIn</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon4"><i class="fab fa-linkedin"></i></span>
+                            </div>
+                            @Html.EditorFor(model => model.LinkEdIn, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.LinkEdIn, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd2">Youtube</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon4"><i class="fab fa-youtube"></i></span>
+                            </div>
+                            @Html.EditorFor(model => model.Youtube, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Youtube, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">Kaydet</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

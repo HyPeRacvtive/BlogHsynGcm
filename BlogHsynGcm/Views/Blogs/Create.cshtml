@@ -1,0 +1,145 @@
+﻿@model BlogHsynGcm.Models.Blogs
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">Makale Düzenle</h4>
+    </div>
+    <div class="col-md-7 align-self-center text-right">
+        <div class="d-flex justify-content-end align-items-center">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javascript:void(0)">Anasayfa</a></li>
+                <li class="breadcrumb-item active">Makale Düzenle</li>
+            </ol>
+            <button onclick="window.location.href=('/Blogs')" type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fas fa-chevron-circle-left"></i> Listeye Dön</button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                @using (Html.BeginForm("Create", "Blogs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-body">
+                        <h5 class="card-title">Makale Bilgileri</h5>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">Makale Adı</label>
+                                    @Html.EditorFor(model => model.Header, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Header, "", new { @class = "text-danger" })
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Kategori</label>
+
+                                    @Html.DropDownList("CategoriesId", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.CategoriesId, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Yazar</label>
+
+                                    @Html.DropDownList("WritersId", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.WritersId, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Resim Ekle</label>
+
+                                    <input type="file" required class="form-control" name="Image" value="" />
+
+                                </div>
+                                <div class="form-group">
+                                    <label>Yayın Seçenekleri</label>
+                                    <br />
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        @Html.CheckBoxFor(model => model.isActive, new { @class = "custom-control-input", id = "Aktif" })
+                                        @Html.ValidationMessageFor(model => model.isActive, "", new { @class = "text-danger" })
+                                        <label class="custom-control-label" for="Aktif">Aktif</label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        @Html.CheckBoxFor(model => model.isSlider, new { @class = "custom-control-input", id = "Slider" })
+                                        @Html.ValidationMessageFor(model => model.isSlider, "", new { @class = "text-danger" })
+                                        <label class="custom-control-label" for="Slider">Slider'da Göster</label>
+                                    </div>
+                                    <div class="custom-control custom-radio custom-control-inline">
+                                        @Html.CheckBoxFor(model => model.isEditorschoice, new { @class = "custom-control-input", id = "Editor" })
+                                        @Html.ValidationMessageFor(model => model.isActive, "", new { @class = "text-danger" })
+                                        <label class="custom-control-label" for="Editor">Editörün Seçimi</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <h5 class="card-title m-t-40">Makale İçeriği</h5>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div >
+                                        <h3><textarea id="summernote" name="BlogContent" class="form-control" ></textarea></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <div class="form-actions m-t-40">
+                        <button type="submit" class="btn btn-success"> <i class="ti ti-check"></i> Yayınla</button>
+                        <button type="button" onclick="window.location.href='/Blogs/Index'" class="btn btn-danger"> <i class="ti ti-control-stop"></i> Vazgeç</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

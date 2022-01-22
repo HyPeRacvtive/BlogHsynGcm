@@ -1,0 +1,33 @@
+﻿@model IEnumerable<BlogHsynGcm.Models.Users>
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Üyeler</h2>
+<hr />
+
+
+<div class="row">
+
+    @foreach (var User in Model)
+    {
+        <div class="col-lg-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="product-img">
+                        <img src="~/Content/HomeStyle/images/user.png">
+                       
+                    </div>
+                    <div class="product-text">
+                        <h5 class="card-title m-b-0">@User.NameSurName</h5>
+                        <small class="text-muted db">@User.Mail</small>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+
+</div>

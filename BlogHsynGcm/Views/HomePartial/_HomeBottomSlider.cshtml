@@ -1,0 +1,39 @@
+﻿@model IEnumerable<BlogHsynGcm.Models.Blogs>
+
+<div class="section p-0">
+    <div class="container-fluid p-0">
+        <div class="row no-gutters">
+            <div class="col-12">
+                <div class="carousel_slider owl-carousel owl-theme nav_style1" data-margin="15" data-loop="true" data-dots="false" data-center="true" data-nav="true" data-responsive='{"0":{"items": "1"}, "480":{"items": "2"}, "991":{"items": "3"}, "1199":{"items": "4"}}'>
+                    @foreach (var BottomSlider in Model)
+                    {
+                        <div class="item">
+                            <div class="blog_post blog_grid_overlay">
+                                <div class="blog_img">
+                                    <a href="#">
+                                        <img width="250" height="250" src="~/Content/HomeStyle/images/BlogImages/@BottomSlider.Image" alt="@BottomSlider.Header">
+                                    </a>
+                                </div>
+                                <div class="blog_content">
+                                    <div class="blog_text">
+                                        <div class="blog_tags">
+                                            <a class="blog_tags_cat" style="background-color:@BottomSlider.Categories.Color" href="/Home/Category/@BottomSlider.Categories.Id">@BottomSlider.Categories.Name</a>
+                                        </div>
+                                        <h5 class="blog_heading"><a href="/Home/Detail/@BottomSlider.Id">@BottomSlider.Header</a></h5>
+                                        <ul class="blog_meta">
+                                            <li><a href="#"><i class="ti-calendar"></i> <span>@BottomSlider.Date.ToString("MMMM dd, yyyy")</span></a></li>
+                                            <li><a href="#"><i class="ti-comments"></i> <span>@BottomSlider.Comments.Count</span></a></li>
+                                            <li><a href="#"><i class="ti-thumb-up"></i> <span>@BottomSlider.LikeCount</span></a></li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

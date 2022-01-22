@@ -1,0 +1,45 @@
+﻿@model BlogHsynGcm.Models.Comments
+
+<div class="content_title">
+    <h5>Yorum Yaz</h5>
+</div>
+
+@using (Html.BeginForm(new { @class = "field_form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div style="display:none">
+        <input type="text" name="UsersId" value="@Session["UserId"]" />
+        <input type="text" name="BlogId" value="@Session["BlogId"]" />
+
+    </div>
+    <div class="row">
+        <div class="form-group col-md-6">
+            <input class="form-control" placeholder="Adınız" readonly value="@Session["HomeUser"]" required="required" type="text">
+        </div>
+
+        <div class="form-group col-md-6">
+            <input class="form-control" placeholder="Mail Adresiniz" value="@Session["UserMail"]" readonly required="required" type="email">
+        </div>
+
+        <div class="form-group col-md-12">
+            <textarea rows="3" name="Comment" class="form-control" placeholder="Yorumunuz" required="required"></textarea>
+        </div>
+        <div class="form-group col-md-12">
+            <div class="chek-form">
+                <div class="custome-checkbox">
+                    <input class="form-check-input" type="checkbox" name="checkbox" id="Checkbox1" value="">
+                    <label class="form-check-label" for="Checkbox1">
+                        <span>
+                            Bir sonraki yorumumda adımı, e-postamı ve web sitemi bu tarayıcıya kaydedin.
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <button value="Submit" name="submit" id="btnCmt" class="btn btn-default" title="Yorumunuz Başarıyla Kaydedildi!" type="submit">Yorum Yaz</button>
+        </div>
+    </div>
+
+}

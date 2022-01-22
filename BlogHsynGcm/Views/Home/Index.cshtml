@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+
+}
+
+
+<!-- START SECTION BANNER -->
+@Html.Action("_HomeSlider", "HomePartial")
+<!-- END SECTION BANNER -->
+<!-- START TRANDING POST -->
+@Html.Action("_TrandingBlogs", "HomePartial")
+<!-- END TRANDING POST -->
+
+<!-- START BLOG WITH SIDEBAR -->
+<div class="section pb_70">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                @Html.Action("_HomeLastBlogs", "HomePartial")
+            </div>
+
+
+
+            <div class="col-lg-4">
+                <div class="sidebar">
+                    <div class="widget">
+                        @Html.Action("_HomeSideBarAbout", "HomePartial")
+                    </div>
+
+                    <div class="widget">
+                        @Html.Action("_HomeSideBarCategories", "HomePartial")
+                    </div>
+                    <div class="widget">
+                        <h5 class="widget_title">Sosyal Medya</h5>
+                        @Html.Action("_HomeSideBarSocialFeed", "HomePartial")
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END BLOG WITH SIDEBAR -->
+<!-- START NEWS POST -->
+
+@Html.Action("_HomeBottomSlider","HomePartial")
+<!-- END NEWS POST -->
+

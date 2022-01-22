@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Hüseyin GÜCÜM">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Gelecek Tecrübe ile Şekillenecektir.">
+    <meta name="keywords" content="Hüseyin GÜCÜM, Hüseyin GÜÇÜM, Adana Ceyhan, Hüseyin GÜCÜM kimdir, Hüseyin GÜÇÜM Kimdir, Ceyhan Belediyesi, Ceyhan Belediye Başkanı, Ceyhan Belediyesi Başkanı, Hüseyin GÜCÜM, Hüseyin GÜÇÜM, Hüseyin gücüm, hüseyin güçüm, ceyhan belediyesi, ceyhan belediye başkanı, ceyhan belediyesi başkanı, ceyhan belediye başkanı adayı, ceyhan belediye başkanı aday adayı, ceyhan belediye başkanı adayı 2024, ceyhan elediye başkanı aday adayı 2024, Ceyhan, Adana, Belediye başkan adayları, belediye bakanı adayları, Ceyhan Son dakika, Ceyhan haberleri, Ceyhan Son dakika haberleri">
+
+    <title>Hüseyin GÜCÜM</title>
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/HomeStyle/images/favicon.png">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="@Url.Content("~/Content/HomeStyle/css/animate.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/HomeStyle/bootstrap/css/bootstrap.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/HomeStyle/css/ionicons.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/HomeStyle/css/themify-icons.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/HomeStyle/css/linearicons.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/HomeStyle/css/all.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/HomeStyle/owlcarousel/css/owl.carousel.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/HomeStyle/owlcarousel/css/owl.theme.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/HomeStyle/owlcarousel/css/owl.theme.default.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/HomeStyle/css/magnific-popup.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/HomeStyle/css/style.css")">
+    <link rel="stylesheet" href="@Url.Content("~/Content/HomeStyle/css/responsive.css")">
+    <link rel="stylesheet" href="@Url.Content("../Content/AdminStyle/assets/node_modules/sweetalert2/dist/sweetalert2.min.css")" />
+
+    <!--CSS END-->
+    <!--FONT-->
+    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!--FONT END-->
+</head>
+<body>
+    <!-- LOADER -->
+    @*<div id="preloader">
+            <div class="sk-folding-cube">
+                <div class="sk-folding-cube-box">
+                    <div class="sk-cube1 sk-cube"></div>
+                    <div class="sk-cube2 sk-cube"></div>
+                    <div class="sk-cube4 sk-cube"></div>
+                            <div class="sk-cube3 sk-cube"></div>
+                </div>
+            </div>
+        </div>*@
+    <!-- END LOADER -->
+    <!-- START POPUP -->
+    @*@Html.Action("_HomeLogin", "HomePartial")*@
+
+    <!-- END POPUP -->
+    <!-- START HEADER -->
+    <header class="header_wrap dark_skin fixed-top">
+
+        <div class="top-header bg_dark light_skin">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+
+                    <div class="col-md-2 pl-5">
+                       Ziyaretçi Sayısı: @Html.Action("_VisitorCount", "HomePartial")
+                    </div>
+
+                    @if (Session["HomeUser"] == null)
+                    {
+                        <div class="col-md-5">
+                            <ul class="header_list text-center text-md-left">
+                                <li><i class="far fa-clock"></i> <span>@DateTime.Now</span></li>
+                                <li><a href="/Home/SignUp">Kayıt ol</a></li>
+                                <li><a href="/Home/SignIn">Giriş Yap</a></li>
+                            </ul>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-md-5">
+                            <ul class="header_list text-center text-md-left">
+                                <li><i class="far fa-clock"></i> <span>@DateTime.Now</span></li>
+                                <li><span class="text-success">Hoşgeldiniz</span> <Span>@Session["HomeUser"]</Span></li>
+                                <li><a href="/Home/Logout">Çıkış Yap</a></li>
+
+                            </ul>
+                        </div>
+                    }
+
+
+                    <div class="col-md-5 pr-5">
+                        <div class="d-flex align-items-center justify-content-center justify-content-md-end">
+                         
+                            @Html.Action("_HomeSideBarSocialFeed", "HomePartial")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="middle_header">
+            <div class="container-fluid">
+                @*<div class="row align-items-center">
+                        <div class="col-md-3">
+                            <a class="navbar-brand rs_center pt-0" href="index.html">
+                                <img class="logo_light" src="~/Content/HomeStyle/images/logo_white.png" alt="logo" />
+                                <img class="logo_dark" src="~/Content/HomeStyle/images/logo_dark.png" alt="logo" />
+                            </a>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="ads_banner text-center text-md-right">
+                                <a href="#"><img src="~/Content/HomeStyle/images/ads730X90.jpg" alt=""></a>
+                            </div>
+                        </div>
+                    </div>*@
+            </div>
+        </div>
+        <div class="bottom_header bg_gray">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4">
+                      @Html.Action("_Logo","HomePartial")
+                    </div>
+                    <div class="col-md-8 ">
+                        <nav class="navbar navbar-expand-lg float-md-right">
+                            <button class="navbar-toggler float-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="ion-android-menu"></span> </button>
+                            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+                                <ul class="navbar-nav">
+                                    <li><a class="nav-link nav_item" href="/">Anasayfa</a></li>
+
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">Kategoriler</a>
+                                        <div class="dropdown-menu">
+                                            @Html.Action("_MenuCategories", "HomePartial")
+
+                                        </div>
+                                    </li>
+                                    <li class="dropdown dropdown-mega-menu">
+                                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#">Editörün Seçimi</a>
+
+                                        @Html.Action("_EditorsBlogs", "HomePartial")
+                                    </li>
+                                    <li><a class="nav-link nav_item" href="/Home/About">Hakkımda</a></li>
+                                    <li><a class="nav-link nav_item" href="/Home/Contact">İletişim</a></li>
+                                </ul>
+                            </div>
+                            @*<ul class="navbar-nav attr-nav align-items-center">
+                                    <li>
+                                        <a href="javascript:void(0);" class="nav-link search_trigger"><i class="ti-search"></i></a>
+                                        <div class="search_wrap">
+                                            <span class="close-search"><i class="ion-ios-close-empty"></i></span>
+                                            <form>
+                                                <input type="text" placeholder="Search" class="form-control" id="search_input">
+                                                <button type="submit" class="search_icon"><i class="ion-ios-search-strong"></i></button>
+                                            </form>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" class="nav-link sidetoggle"><span class="sidetoggle_icon"><span class="toggle_center_line"></span></span></a>
+                                    </li>
+                                </ul>*@
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <!-- END HEADER -->
+    <div class="container-fluid m-0 p-0">
+        @RenderBody()
+    </div>
+
+    <!-- START FOOTER SECTION -->
+    @Html.Action("_Footer", "HomePartial")
+    <!-- END FOOTER SECTION -->
+
+    <a href="#" class="scrollup" style="display: none;"><i class="ion-ios-arrow-up"></i></a>
+
+    <script src="@Url.Content("~/Content/HomeStyle/js/jquery-1.12.4.min.js")"></script>
+    <script src="@Url.Content("~/Content/HomeStyle/bootstrap/js/bootstrap.min.js")"></script>
+    <script src="@Url.Content("~/Content/HomeStyle/owlcarousel/js/owl.carousel.min.js")"></script>
+    <script src="@Url.Content("~/Content/HomeStyle/js/magnific-popup.min.js")"></script>
+    <script src="@Url.Content("~/Content/HomeStyle/js/waypoints.min.js")"></script>
+    <script src="@Url.Content("~/Content/HomeStyle/js/imagesloaded.pkgd.min.js")"></script>
+    <script src="@Url.Content("~/Content/HomeStyle/js/isotope.min.js")"></script>
+    <script src="@Url.Content("~/Content/HomeStyle/js/jquery.appear.js")"></script>
+    <script src="@Url.Content("~/Content/HomeStyle/js/jquery.parallax-scroll.js")"></script>
+    <script src="@Url.Content("~/Content/HomeStyle/js/jquery.dd.min.js")"></script>
+    <script src="@Url.Content("~/Content/HomeStyle/js/scripts.js")"></script>
+    <script src="@Url.Content("~/Content/AdminStyle/assets/node_modules/sweetalert2/sweet-alert.init.js")"></script>
+    <script src="@Url.Content("~/Content/AdminStyle/assets/node_modules/sweetalert2/dist/sweetalert2.all.min.js")"></script>
+</body>
+</html>

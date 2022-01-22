@@ -1,0 +1,29 @@
+﻿@model IEnumerable<BlogHsynGcm.Models.Comments>
+
+    <div class="content_title">
+        <h5>(@Model.Count()) Yorum</h5>
+    </div>
+    <ul class="list_none comment_list">
+
+        @foreach (var comments in Model)
+        {
+            <li class="comment_info">
+                <div class="d-flex">
+                    <div class="comment_user">
+                        <img class="rounded-circle" src="~/Content/HomeStyle/images/user.png" alt="user4">
+                    </div>
+                    <div class="comment_content">
+                        <div class="d-flex">
+                            <div class="meta_data">
+                                <h6><a href="#">@comments.User.NameSurName</a></h6>
+                                <div class="comment-time">@comments.Date.ToString("MMMM dd , yyyy")</div>
+                            </div>
+                            
+                        </div>
+                        <p>@comments.Comment</p>
+                    </div>
+                </div>
+            </li>
+        }
+            </ul>
+

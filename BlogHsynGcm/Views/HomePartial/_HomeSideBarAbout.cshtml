@@ -1,0 +1,15 @@
+﻿@model  IEnumerable<BlogHsynGcm.Models.Writers>
+
+<h5 class="widget_title">Hakkımda</h5>
+<div class="about_widget">
+
+    @foreach (var item in Model)
+    {
+        <div class="about_img">
+            <img src="~/Content/UploadImage/@item.Image" alt="author_img">
+        </div>
+        <h5>@item.NameSurname</h5>
+        <p>@item.ShortAbout </p>
+    }
+</div>
+

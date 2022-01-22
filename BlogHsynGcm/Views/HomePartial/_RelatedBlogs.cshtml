@@ -1,0 +1,28 @@
+﻿ @model IEnumerable<BlogHsynGcm.Models.Blogs>
+
+@foreach (var Related in Model)
+{
+<div class="col-md-6">
+    <div class="blog_post">
+        <div class="blog_img">
+            <a href="#">
+                <img src="~/Content/HomeStyle/images/BlogImages/@Related.Image" alt="@Related.Header">
+            </a>
+        </div>
+        <div class="blog_content">
+            <div class="blog_text">
+                <div class="blog_tags">
+                    <a class="blog_tags_cat" style="background-color:@Related.Categories.Color" href="/Home/Category/@Related.Categories.Id">@Related.Categories.Name </a>
+                </div>
+                <h5 class="blog_heading"><a href="/Home/Detail/@Related.Id">@Related.Header</a></h5>
+                <ul class="blog_meta">
+                    <li><a href="#"><i class="ti-calendar"></i> <span>@Related.Date.ToString("MMMM dd, yyyy")</span></a></li>
+                    <li><a href="#"><i class="ti-comments"></i> <span>@Related.Comments.Count</span></a></li>
+                    <li><a href="#"><i class="ti-thumb-up"></i> <span>@Related.LikeCount</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+}
+

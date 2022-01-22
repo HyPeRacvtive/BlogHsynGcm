@@ -1,0 +1,30 @@
+﻿@model IEnumerable<BlogHsynGcm.Models.Blogs>
+
+    <div class="blog_article blog_grid_module">
+        <h4 class="widget_title">Son Makaleler</h4>
+        @foreach (var LastBlog in Model)
+        {
+
+            <div class="blog_post">
+                <div class="blog_img">
+                    <a href="#">
+                        <img height="200" src="~/Content/HomeStyle/images/BlogImages/@LastBlog.Image" alt="@LastBlog.Header">
+                    </a>
+                </div>
+                <div class="blog_content">
+                    <div class="blog_text">
+                        <div class="blog_tags">
+                            <a class="blog_tags_cat" style="background-color:@LastBlog.Categories.Color" href="/Home/Category/@LastBlog.Id">@LastBlog.Categories.Name</a>
+                        </div>
+                        <h5 class="blog_heading"><a href="/Home/Detail/@LastBlog.Id">@LastBlog.Header</a></h5>
+                        <ul class="blog_meta">
+                            <li><a href="#"><i class="ti-calendar"></i><span>@LastBlog.Date.ToString("MMMM dd, yyyy")</span></a></li>
+                            <li><a href="#"><i class="ti-comments"></i><span>@LastBlog.Comments.Count</span></a></li>
+                            <li><a href="#"><i class="ti-thumb-up"></i> <span>@LastBlog.LikeCount</span></a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>

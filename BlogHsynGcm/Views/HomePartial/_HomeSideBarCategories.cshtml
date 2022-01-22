@@ -1,0 +1,18 @@
+﻿@model IEnumerable<BlogHsynGcm.Models.Categories>
+
+<h5 class="widget_title">Kategoriler</h5>
+<ul class="widget_categories">
+    @foreach (var Cat in Model)
+    {
+        if (Cat.Name==null)
+        {
+            <li>Kategori Yok</li>
+        }
+        else
+        {
+            <li><a href="/Home/Category/@Cat.Id"><div class="post_category"><span class="cat_title">@Cat.Name</span><span class="cat_num">(@Cat.Blogs.Count)</span></div></a></li>
+        }
+
+
+    }
+</ul>

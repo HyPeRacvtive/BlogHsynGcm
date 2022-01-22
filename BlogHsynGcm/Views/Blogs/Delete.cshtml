@@ -1,0 +1,79 @@
+﻿@model BlogHsynGcm.Models.Blogs
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="row page-titles">
+    <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor text-danger">Makaleyi Silmek İstediğinizden Emin misiniz ?</h4>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Column -->
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="">@Model.Header</h3>
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-6">
+                        <div class="white-box text-center"> <img src="~/Content/HomeStyle/images/BlogImages/@Model.Image" class="img-responsive"> </div>
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-6">
+                        <h4 class="box-title m-t-40">Makale</h4>
+                        <p>@Html.Raw(Model.BlogContent)</p>
+                        <h2 class="m-t-40"><i class="ti-thumb-up"></i> @Model.LikeCount </h2>
+
+                        <h3 class="box-title m-t-40">@Model.Date </h3>
+                        <ul class="list-unstyled">
+                            @if (Model.isActive)
+                            {
+                                <li><i class="ti-check bg-success"></i>Makale Aktif</li>
+                            }
+                            else
+                            {
+                                <li><i class="ti-close bg-danger"></i>Makale Pasif</li>
+                            }
+
+                            @if (Model.isSlider)
+                            {
+                                <li><i class="ti-check bg-success"></i>Slider'da Görünüyor</li>
+                            }
+                            else
+                            {
+                                <li><i class="ti-close bg-danger"></i>Slider'da Görünmüyor</li>
+
+                            }
+
+                            @if (Model.isEditorschoice)
+                            {
+                                <li><i class="ti-check bg-success"></i>Editörün Seçimi</li>
+                            }
+                            else
+                            {
+                                <li><i class="ti-close bg-danger"></i>Editörün Seçimi değil</li>
+
+                            }
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <button type="submit" class="btn btn-primary btn-rounded">Makaleyi Sil</button>
+            @Html.ActionLink("Listeye Dön", "Index")
+        </div>
+    }
+</div>
+
+

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<BlogHsynGcm.Models.SocialFeed>
+
+<ul class="widget_social social_icons rounded_social">
+
+
+    @foreach (var item in Model)
+    {
+        if (item.FaceBook != null)
+        {
+            <li><a href="@item.FaceBook" class="sc_facebook"><i class="ion-social-facebook"></i></a></li>
+
+        }
+        if (item.Twitter != null)
+        {
+            <li><a href="@item.Twitter" class="sc_twitter"><i class="ion-social-twitter"></i></a></li>
+
+        }
+        if (item.Youtube != null)
+        {
+            <li><a href="@item.Youtube" class="sc_youtube"><i class="ion-social-youtube"></i></a></li>
+
+        }
+
+        if (item.Instagram != null)
+        {
+            <li><a href="@item.Instagram" class="sc_instagram"><i class="ion-social-instagram"></i></a></li>
+
+        }
+        if (item.LinkEdIn != null)
+        {
+            <li><a href="@item.LinkEdIn" class="sc_linkedin"><i class="ion-social-linkedin"></i></a></li>
+
+        }
+    }
+
+
+</ul>

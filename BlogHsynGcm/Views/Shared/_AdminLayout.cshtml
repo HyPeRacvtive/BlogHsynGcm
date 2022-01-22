@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Content/AdminStyle/assets/images/favicon.png">
+    <title>Hüseyin Gücüm Blog Admin</title>
+    <link href="~/Content/AdminStyle/assets/node_modules/morrisjs/morris.css" rel="stylesheet">
+    <link href="~/Content/AdminStyle/dist/css/pages/ecommerce.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/Content/AdminStyle/assets/node_modules/summernote/dist/summernote-bs4.css">
+    <link href="~/Content/AdminStyle/assets/icons/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="~/Content/AdminStyle/dist/css/style.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">Hüseyin GÜCÜM</p>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">
+                        <b>
+                        </b>
+                        <span>
+                            @*<img src="~/Content/UploadImage/logo.png" height="75" width="75" class="light-logo" alt="homepage" />*@
+                        </span>
+                    </a>
+                </div>
+                <div class="navbar-collapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"> <a class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                        <li class="nav-item"> <a class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark" href="javascript:void(0)"><i class="icon-menu"></i></a> </li>
+                    </ul>
+                    <ul class="navbar-nav my-lg-0">
+
+                        <li class="nav-item dropdown">
+
+                            @Html.Action("_AdminMessages", "AdminPartial")
+                        </li>
+                        <li class="nav-item dropdown">
+                            @Html.Action("_HomeNotification", "AdminPartial")
+                        </li>
+                        <li class="nav-item right-side-toggle"> <a class="nav-link  waves-effect waves-light" href="javascript:void(0)"><i class="ti-settings"></i></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        @Html.Action("_LeftSideBar", "AdminPartial")
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                @RenderBody()
+                @Html.Action("_RightSideBar", "AdminPartial")
+            </div>
+        </div>
+        <footer class="footer">
+            © @DateTime.Now.Year Design By Vehbi İlkkan MEMİLİ
+        </footer>
+    </div>
+    <script src="~/Content/AdminStyle/assets/node_modules/jquery/jquery-3.2.1.min.js"></script>
+    <script src="~/Content/AdminStyle/assets/node_modules/popper/popper.min.js"></script>
+    <script src="~/Content/AdminStyle/assets/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/Content/AdminStyle/dist/js/perfect-scrollbar.jquery.min.js"></script>
+    <script src="~/Content/AdminStyle/dist/js/waves.js"></script>
+    <script src="~/Content/AdminStyle/dist/js/sidebarmenu.js"></script>
+    <script src="~/Content/AdminStyle/assets/node_modules/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <script src="~/Content/AdminStyle/assets/node_modules/sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/Content/AdminStyle/dist/js/custom.min.js"></script>
+    <script src="~/Content/AdminStyle/assets/node_modules/jquery-sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/Content/AdminStyle/assets/node_modules/raphael/raphael-min.js"></script>
+    <script src="~/Content/AdminStyle/assets/node_modules/morrisjs/morris.min.js"></script>
+    <script src="~/Content/AdminStyle/dist/js/ecom-dashboard.js"></script>
+    <script src="~/Content/AdminStyle/assets/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="~/Content/AdminStyle/assets/node_modules/sweetalert2/sweet-alert.init.js"></script>
+    <script src="~/Content/AdminStyle/assets/node_modules/peity/jquery.peity.min.js"></script>
+    <script src="~/Content/AdminStyle/assets/node_modules/peity/jquery.peity.init.js"></script>
+    <script src="~/Content/AdminStyle/assets/node_modules/summernote/dist/summernote-bs4.min.js"></script>
+    <script>
+        $(function () {
+
+            $('#summernote').summernote({
+                height: 350, // set editor height
+                minHeight: null, // set minimum height of editor
+                maxHeight: null, // set maximum height of editor
+                focus: false // set focus to editable area after initializing summernote
+            });
+
+            $('.inline-editor').summernote({
+                airMode: true
+            });
+
+        });
+
+        window.edit = function () {
+            $(".click2edit").summernote()
+        },
+            window.save = function () {
+                $(".click2edit").summernote('destroy');
+            }
+
+    </script>
+    <script>
+        function degistir() {
+            var choose = document.getElementById("renk").value;
+            document.getElementById("put").value = choose;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+﻿@model BlogHsynGcm.Models.Blogs
+
+<!-- START SECTION BREADCRUMB -->
+<!-- START BLOG -->
+<div class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="single_post">
+                    <div class="blog_img">
+                        <img src="~/Content/HomeStyle/images/BlogImages/@Model.Image" alt="blog_img1">
+                        <div class="blog_tags">
+                            <a class="blog_tags_cat bg_blue" href="#">@Model.Categories.Name</a>
+                        </div>
+                    </div>
+                    <div class="blog_content">
+                        <div class="blog_text">
+                            <h2 class="blog_title">@Model.Header</h2>
+                            <ul class="blog_meta">
+                                <li><a href="#"><i class="ti-user"></i>@Model.Writers.NameSurname</a></li>
+                                <li><a href="#"><i class="ti-calendar"></i>@Model.Date.ToString("MMMM dd , yyyy")</a></li>
+                                <li><a href="#"><i class="ti-comments"></i>@Model.Comments.Count</a></li>
+                                <li><a href="/HomePartial/_BlogLike/@Model.Id"><i class="ti-thumb-up"></i> <span>@Model.LikeCount Beğen</span></a></li>
+
+                            </ul>
+
+                            @Html.Raw(Model.BlogContent)
+
+
+                            <div class="blog_post_footer">
+                                <div class="row justify-content-between align-items-center">
+
+                                    <div class="col-md-4">
+                                        @Html.Action("_HomeSideBarSocialFeed", "HomePartial")
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="post_navigation">
+                    <div class="divider"></div>
+                    <div class="row align-items-center justify-content-between py-4">
+                        <div class="col-5">
+                            <a href="/Home/Detail/@ViewBag.Before">
+                                <div class="post_nav post_nav_prev">
+                                    <i class="ti-arrow-left"></i>
+                                    <span>Önceki Makale</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-2">
+                            <a href="#" class="post_nav_home">
+                                <i class="ti-layout-grid2"></i>
+                            </a>
+                        </div>
+                        <div class="col-5">
+                            <a href="/Home/Detail/@ViewBag.After">
+                                <div class="post_nav post_nav_next">
+                                    <i class="ti-arrow-right"></i>
+                                    <span>Sonraki Makale</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                </div>
+                <div class="related_post">
+                    <div class="content_title">
+                        <h5>Benzer Makaleler</h5>
+                    </div>
+                    <div class="row">
+                        @Html.Action("_RelatedBlogs", "HomePartial")
+                    </div>
+                </div>
+                <div class="comment-area">
+                    @Html.Action("_Comments", "HomePartial")
+                    @if (Session["HomeUser"] != null)
+                    {
+                        @Html.Action("_CommentWrite", "HomePartial")
+                    }
+                    else
+                    {
+                        <h4 class="text-danger">Yorum Yazabilmek İçin <a href="/Home/SignIn">Giriş Yapın</a> veya <a href="/Home/SignUp">Kayıt Olun</a> </h4>
+                    }
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="sidebar mt-4 pt-2 mt-lg-0 pt-lg-0">
+                    <div class="widget">
+                        @Html.Action("_HomeSideBarAbout", "HomePartial")
+                    </div>
+
+                    <div class="widget">
+                        @Html.Action("_HomeSideBarCategories", "HomePartial")
+                    </div>
+
+                    @*<div class="widget">
+                        <h5 class="widget_title">Makalelerden Haberdar Olun</h5>
+                        <p class="text-capitalize">Yeni Makalelerden Haberdar Olmak İçin Mail Adresinizi Kayıt Edin</p>
+                        <div class="newsletter_form">
+                            <form>
+                                <input type="text" required="" class="form-control form-control-sm rounded-input" placeholder="Mail Adresinizi Giriniz...">
+                                <button type="submit" title="Subscribe" class="btn btn-default btn-radius btn-sm" name="submit" value="Submit">Kayıt Ol</button>
+                            </form>
+                        </div>
+                    </div>*@
+                    <div class="widget">
+                        <h5 class="widget_title">Sosyal Medya</h5>
+                        @Html.Action("_HomeSideBarSocialFeed", "HomePartial")
+
+                    </div>
+                    @*@Html.Action("_LastArticles", "Partial")*@
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END BLOG -->
+<!-- START SECTION INSTAGRAM IMAGE -->
